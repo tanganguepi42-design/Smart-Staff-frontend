@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  color: #152d3d;
+  background: #f6f8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --admin-deep: #123b4a;
+  --admin-accent: #2f8090;
+  --hr-deep: #244f49;
+  --hr-accent: #4f927a;
+  --employee-deep: #713f35;
+  --employee-accent: #c4774e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #eef3f4;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #b9ddd7;
+  color: #102b3f;
+}
+
+/* Role themes keep the workspaces related without making them look identical. */
+.role-admin,
+.role-hr,
+.role-employee {
+  background-image: radial-gradient(circle at 90% 0%, rgba(255, 255, 255, 0.9), transparent 34%), linear-gradient(135deg, #f7faf9 0%, #edf3f4 100%);
+}
+
+.role-admin .admin-sidebar,
+.role-admin > aside {
+  background: linear-gradient(160deg, var(--admin-deep), #1b5d6a 58%, #0d2d3c) !important;
+}
+
+.role-hr aside,
+.role-hr .hr-sidebar {
+  background: linear-gradient(160deg, var(--hr-deep), #397362 58%, #173b3b) !important;
+}
+
+.role-employee .employee-sidebar {
+  background: linear-gradient(160deg, var(--employee-deep), #a35e43 58%, #4f302d) !important;
+}
+
+.role-admin .bg-\[\#1f485b\],
+.role-hr .bg-\[\#1f485b\],
+.role-employee .bg-\[\#1f485b\] {
+  background-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.role-admin .bg-\[\#16766d\] { background-color: var(--admin-accent) !important; }
+.role-hr .bg-\[\#16766d\] { background-color: var(--hr-accent) !important; }
+.role-employee .bg-\[\#16766d\] { background-color: var(--employee-accent) !important; }
+
+.role-admin .text-\[\#16766d\] { color: var(--admin-accent) !important; }
+.role-hr .text-\[\#16766d\] { color: var(--hr-accent) !important; }
+.role-employee .text-\[\#16766d\] { color: var(--employee-accent) !important; }
+
+.role-admin header .lg\:hidden,
+.role-hr header .lg\:hidden,
+.role-employee header .lg\:hidden {
+  display: flex !important;
+}
+
+.login-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.9), transparent 28%), linear-gradient(135deg, #f5f8f8, #e7eff1);
+}
+
+.login-shell::before {
+  position: absolute;
+  inset: -12rem auto auto -8rem;
+  z-index: 0;
+  width: 38rem;
+  height: 38rem;
+  content: '';
+  background: url('/assets/images/smart%20staff.png') center / contain no-repeat;
+  opacity: 0.16;
+  transform: rotate(-14deg);
+}
+
+.login-shell::after {
+  position: absolute;
+  right: -8rem;
+  bottom: -12rem;
+  z-index: 0;
+  width: 38rem;
+  height: 38rem;
+  content: '';
+  background: url('/assets/images/smart%20staff.png') center / contain no-repeat;
+  opacity: 0.16;
+  transform: rotate(14deg);
+}
+
+.login-shell > div {
+  position: relative;
+  z-index: 1;
+  border-top: 5px solid #8aa8ad;
+}
+
+.login-admin { background-image: radial-gradient(circle at 12% 18%, rgba(116, 184, 195, 0.24), transparent 30%), linear-gradient(135deg, #eef6f7, #dcebed); }
+.login-admin > div { border-top-color: var(--admin-accent); }
+.login-hr { background-image: radial-gradient(circle at 12% 18%, rgba(113, 175, 143, 0.24), transparent 30%), linear-gradient(135deg, #eff8f2, #dcece4); }
+.login-hr > div { border-top-color: var(--hr-accent); }
+.login-employee { background-image: radial-gradient(circle at 12% 18%, rgba(224, 155, 107, 0.27), transparent 30%), linear-gradient(135deg, #fff7f1, #f3e2d7); }
+.login-employee > div { border-top-color: var(--employee-accent); }
